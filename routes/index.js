@@ -5,6 +5,7 @@ const homeRouters = require('./home')
 const viewerRouters = require('./viewer')
 const authRouters = require('./auth')
 
+
 function routerApi(app){
   app.use('/images', imagesRouters)
   app.use('/profile', profileRouters)
