@@ -2,8 +2,11 @@ const express = require('express')
 const router = express.Router()
 const Image = require('../models/image')
 const Comment = require('../models/comment')
+const passport = require ('passport')
 
-router.get('/', (req, res) => {
+router.get('/',
+passport.authenticate('jwt', {session:false}),
+(req, res) => {
   try{
     res.json({
         title: "Martin",
