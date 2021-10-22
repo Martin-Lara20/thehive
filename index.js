@@ -5,7 +5,7 @@ const { config } = require('./config/index')
 const {checkApiKey} = require('./middleware/auth.handler')
 const passport = require('passport')
 
-app.use(passport.initialize)
+app.use(passport.initialize())
 const port = config.port
 
 const mongoose = require('mongoose')
@@ -25,7 +25,7 @@ require('./util/auth')
 
 routerApi(app)
 
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hi body! Welcome to the new experience')
 })
 
