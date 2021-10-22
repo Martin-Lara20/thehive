@@ -1,14 +1,17 @@
 const express = require('express')
 const passport = require('../util/auth')
 const router = express.Router()
+
 const {config} = require ('../config/index')
 const WordSecret = encodeURIComponent(config.PaSEPass)
 const jwt = require('jsonwebtoken')
+
 
 router.post('/login',
  passport.authenticate('local', {session:false}),
 async (req, res, next)=>{
   try{
+
     const user =req.user
     const payload = {
       sub: user.id,
@@ -24,6 +27,7 @@ async (req, res, next)=>{
   }catch(error){
     next(error)
    }
+
   }
 
  )
