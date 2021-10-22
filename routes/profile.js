@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const passport = require ('passport')
 const Profile = require('../models/profile')
 
-router.get('/', (req, res) => {
+router.get('/', passport.authenticate('jwt', {session:false}),
+(req, res) => {
   try{
     res.json({
         author: 'Martin',
