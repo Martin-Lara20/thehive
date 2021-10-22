@@ -9,7 +9,9 @@ const config = {
   dbHost: process.env.DB_HOST,
   dbName: process.env.DB_NAME,
 
-  dbiApiPass: process.env.DB_APIKEYPASS
+  dbiApiPass: process.env.DB_APIKEYPASS,
+
+  PaSEPass: process.env.DB_PASE
 }
 
 module.exports = { config }
