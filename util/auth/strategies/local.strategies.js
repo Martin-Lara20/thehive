@@ -17,7 +17,7 @@ const LocalStrategy = new Strategy(
       const isMatch = await bcrypt.compare(password, user.password)
       if(!isMatch) throw { status: 401, message: 'No autorizado', error: true }
 
-      delete user.pass
+      delete user.password
 
       done(null, user)
     } catch(error){
