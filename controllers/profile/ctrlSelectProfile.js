@@ -3,7 +3,7 @@ const { selectProfile } = require("../../services/profile/SelectProfile")
 async function ctrlSelectProfile(req, res){
   try{
     const { genre } = req.query
-    console.log('Hola desde el controlador')
+    console.log('Hola desde el controlador SelectProfile')
     const x = await selectProfile(genre)
     return res.status(200).send(x)
 
