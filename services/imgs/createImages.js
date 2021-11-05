@@ -5,7 +5,8 @@ async function createImage(  title, description, email ){
      const imageCreate = await Image.create({
       title,
       description,
-      email
+      email,
+
      }
     )
 
