@@ -6,7 +6,9 @@ const viewerRouters = require('./viewer')
 const authRouters = require('./auth')
 
 
+
 function routerApi(app){
+  app.use(express.json());
   app.use('/images', imagesRouters)
   app.use('/profile', profileRouters)
   app.use('/home', homeRouters)
