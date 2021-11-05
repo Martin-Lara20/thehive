@@ -5,6 +5,12 @@ const upload = require('../libs/storage')
 const { ctrlCreateImages } = require('../controllers/imgs/ctrlCreateImages')
 const { ctrlDeleteImages } = require('../controllers/imgs/ctrlDeleteImages')
 
+const { ctrlCreateComment } = require('../controllers/comment/ctrlCreateComment')
+const { ctrlUpdateComment } = require('../controllers/comment/ctrlUpdateComment')
+const { ctrlDeleteComment } = require('../controllers/comment/ctrlDeleteComment')
+
+
+
 
 router.post('/',
   passport.authenticate('jwt', {session:false}),
@@ -17,5 +23,20 @@ router.delete('/:title',
   ctrlDeleteImages
 )
 
+//------------------------------------------------------------------------------------------------
+router.post('/comment',
+  passport.authenticate('jwt', {session:false}),
+   ctrlCreateComment
+)
+
+router.put('/comment/:email',
+  passport.authenticate('jwt', {session:false}),
+  ctrlUpdateComment
+)
+
+router.delete('/comment/:email',
+  passport.authenticate('jwt', {session:false}),
+  ctrlDeleteComment
+)
 
 module.exports = router
