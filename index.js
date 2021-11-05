@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 app.use('/public', express.static(`${__dirname}/public/imgs`))
 
 app.use(bodyParser.urlencoded({ extended: false}))
+app.use(bodyParser.json())
 
 app.use(passport.initialize())
 const port = config.port
@@ -30,9 +31,7 @@ require('./util/auth')
 
 routerApi(app)
 
-app.get('/', (req, res) => {
-  res.send('Hi body! Welcome to the new experience')
-})
+
 
 app.get('/otra-ruta', checkApiKey, (req, res) => {
   res.send('Hi! This is other route')

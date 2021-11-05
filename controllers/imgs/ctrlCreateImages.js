@@ -1,17 +1,13 @@
 const { createImage } = require("../../services/imgs/createImages")
 
+
 async function ctrlCreateImages(req, res){
   try{
-    console.log('Hola desde el controlador CreateProfile')
+    console.log('Hola desde el controlador CreateImages')
     console.log(req.body)
     const { title, description, email } = req.body
 
-    const images = await createImage(title, description, email)
-
-    if(req.file){
-      const {filename } = req.file
-      images.setImgUrl(filename)
-    }
+    const images = await createImage(title, description, email )
 
     return res.status(200).send(images)
 
