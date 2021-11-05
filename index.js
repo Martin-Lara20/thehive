@@ -4,6 +4,11 @@ const app = express()
 const { config } = require('./config/index')
 const {checkApiKey} = require('./middleware/auth.handler')
 const passport = require('passport')
+const bodyParser = require('body-parser')
+
+app.use('/public', express.static(`${__dirname}/public/imgs`))
+
+app.use(bodyParser.urlencoded({ extended: false}))
 
 app.use(passport.initialize())
 const port = config.port

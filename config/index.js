@@ -11,7 +11,12 @@ const config = {
 
   dbiApiPass: process.env.DB_APIKEYPASS,
 
-  PaSEPass: process.env.DB_PASE
+  PaSEPass: process.env.DB_PASE,
+
+  appConfig:{
+    host: process.env.APP_HOST,
+    port: process.env.PORT,
+  }
 }
 
 module.exports = { config }
