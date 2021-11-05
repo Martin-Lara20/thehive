@@ -1,21 +1,31 @@
 const express = require('express')
 const router = express.Router()
 const passport = require ('passport')
-const Viewer = require('../models/viewer')
+const { ctrlSelectViewer } = require('../controllers/viewer/ctrlSelectViewer')
+const { ctrlUpdateViewer } = require('../controllers/viewer/ctrlUpdateViewer')
+const { ctrlCreateViewer } = require('../controllers/viewer/ctrlCreateViewer')
+const { ctrlDeleteViewer } = require('../controllers/viewer/ctrlDeleteViewer')
 
-router.get('/', passport.authenticate('jwt', {session:false}),
-(req, res) => {
-  try{
-    res.json({
-        name: 'Nahu',
-        lastName: 'Said',
-        userName: 'Nahuyaca123456',
-        email: 'moc_1324@hive.com'
-    })
-  }catch(error){
-    console.log(`Error: ${error}`)
-  }
-})
 
+router.get('/',
+  passport.authenticate('jwt', {session:false}),
+  ctrlSelectViewer
+)
+
+router.post('/',
+  passport.authenticate('jwt', {session:false}),
+  ctrlCreateViewer
+)
+
+
+router.put('/:email',
+  passport.authenticate('jwt', {session:false}),
+  ctrlUpdateViewer
+)
+
+router.delete('/:email',
+  passport.authenticate('jwt', {session:false}),
+  ctrlDeleteViewer
+)
 
 module.exports = router
