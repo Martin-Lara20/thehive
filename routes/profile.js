@@ -7,8 +7,6 @@ const { ctrlUpdateProfile } = require('../controllers/profile/ctrlUpdateProfile'
 const { ctrlCreateProfile } = require('../controllers/profile/ctrlCreateProfile')
 const { ctrlDeleteProfile } = require('../controllers/profile/ctrlDeleteProfile')
 
-
-
 router.get('/',
   passport.authenticate('jwt', {session:false}),
   ctrlSelectProfile
