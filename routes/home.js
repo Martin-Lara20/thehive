@@ -1,21 +1,23 @@
 const express = require('express')
 const passport = require ('passport')
 const router = express.Router()
-const home = express()
+
 
 router.get('/',
 passport.authenticate('jwt', {session:false}),
-(req, res) => {
-
-      res.send( "Welcome to THE HIVE! This is a community where all build a hive of pictures")
+async (req, res) => {
+  try{
+    res.json({
+      status:200,
+      message: "Welcome to THE HIVE! This is a community where all build a hive of pictures"
+    });
+  }catch (error){
+    console.error(error)
+    return res.status(500).send("server error")
+  }
 })
 
-home.get('/',
-passport.authenticate('jwt', {session:false}),
-(req, res) => {
 
-      res.send( "Welcome to THE HIVE! This is a community where all build a hive of pictures")
-})
 
 module.exports = router
-module.exports = home
+

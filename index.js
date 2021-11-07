@@ -5,8 +5,7 @@ const { config } = require('./config/index')
 const {checkApiKey} = require('./middleware/auth.handler')
 const passport = require('passport')
 const bodyParser = require('body-parser')
-const home = require('./routes/home')
-
+const home = require("./routes/home")
 
 
 app.use('/public', express.static(`${__dirname}/public/imgs`))
@@ -34,8 +33,8 @@ require('./util/auth')
 
 routerApi(app)
 
-home.lister(port)
-console.log(`Listen on port ${port}`)
+app.use(express.json({extended: false}))
+app.use("/routes/home.js",home)
 
 app.get('/otra-ruta', checkApiKey, (req, res) => {
   res.send('Hi! This is other route')
