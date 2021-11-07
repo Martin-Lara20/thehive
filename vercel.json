@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buids": [
+  "builds": [
     {
       "src": "./routes/home.js",
       "use": "@vercel/node"
