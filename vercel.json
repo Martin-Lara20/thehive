@@ -2,8 +2,8 @@
   "version": 2,
   "buids": [
     {
-      "src": "./index.js",
-      "use": "qvercel/node"
+      "src": "./routes/home.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
