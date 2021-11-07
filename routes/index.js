@@ -13,7 +13,6 @@ function routerApi(app){
   app.use('/profile', profileRouters)
   app.use('/home', homeRouters)
   app.use('/viewer', viewerRouters)
-  app.use(express.json())
   app.use('/auth', authRouters)
 }
 
