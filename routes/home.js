@@ -1,10 +1,9 @@
 const express = require('express')
-const passport = require ('passport')
 const router = express.Router()
 
 
 router.get('/',
-passport.authenticate('jwt', {session:false}),
+
 async (req, res) => {
   try{
     res.json({
