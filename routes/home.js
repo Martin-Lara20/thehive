@@ -5,11 +5,8 @@ const router = express.Router()
 router.get('/',
 passport.authenticate('jwt', {session:false}),
 (req, res) => {
-  res.json([
-    {
-      description: "Welcome to THE HIVE! This is a community where all build a hive of pictures"
-    }
-  ])
+
+      res.send( "Welcome to THE HIVE! This is a community where all build a hive of pictures")
 })
 
 module.exports = router
