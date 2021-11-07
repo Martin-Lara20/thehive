@@ -5,6 +5,7 @@ const { config } = require('./config/index')
 const {checkApiKey} = require('./middleware/auth.handler')
 const passport = require('passport')
 const bodyParser = require('body-parser')
+const home = require ('./routes/home')
 
 app.use('/public', express.static(`${__dirname}/public/imgs`))
 
