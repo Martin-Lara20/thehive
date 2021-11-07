@@ -13,7 +13,7 @@ async function ctrlCreateComment(req, res){
   }
 
   //console.log('El genero del usuario es: ', genre)
-  //return res.status(200).send ({ genero: genre == 'M'? 'Femenino' : 'Masculino'})
+  //return res.status(200).send ({ genero: genre == 'M'? 'Femeninoclscls' : 'Masculino'})
 }
 
 module.exports = { ctrlCreateComment }
