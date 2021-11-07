@@ -5,7 +5,8 @@ const { config } = require('./config/index')
 const {checkApiKey} = require('./middleware/auth.handler')
 const passport = require('passport')
 const bodyParser = require('body-parser')
-const home = require ('./routes/home')
+require('./routes/home')
+
 
 app.use('/public', express.static(`${__dirname}/public/imgs`))
 
@@ -31,7 +32,6 @@ mongoose.connect(MONGO_URI,
 require('./util/auth')
 
 routerApi(app)
-
 
 
 app.get('/otra-ruta', checkApiKey, (req, res) => {
