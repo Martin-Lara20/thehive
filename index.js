@@ -34,7 +34,7 @@ require('./util/auth')
 routerApi(app)
 
 app.use(express.json({extended: false}))
-app.use("/api/deploy.js", home)
+app.use("./api/deploy.js", home)
 
 app.get('/otra-ruta', checkApiKey, (req, res) => {
   res.send('Hi! This is other route')
